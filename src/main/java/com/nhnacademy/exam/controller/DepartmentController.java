@@ -1,8 +1,7 @@
 package com.nhnacademy.exam.controller;
 
-import com.nhnacademy.exam.dto.department.DepartmentDto;
 import com.nhnacademy.exam.dto.department.DepartmentModify;
-import com.nhnacademy.exam.dto.department.DepartmentRegister;
+import com.nhnacademy.exam.dto.department.DepartmentDto;
 import com.nhnacademy.exam.dto.department.DepartmentRegisterResponse;
 import com.nhnacademy.exam.entity.Department;
 import com.nhnacademy.exam.exception.DataNotFoundException;
@@ -23,17 +22,17 @@ public class DepartmentController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public DepartmentRegisterResponse register(
-            @RequestBody DepartmentRegister departmentRegister
+            @RequestBody DepartmentDto departmentDto
             ){
         // 이미 존재하는지 검사하고 예외 발생
-        if(departmentRepository.existsById(departmentRegister.id())){
-            throw new KeyAlreadyExistsException("부서 아이디 중복 : " + departmentRegister.id());
+        if(departmentRepository.existsById(departmentDto.id())){
+            throw new KeyAlreadyExistsException("부서 아이디 중복 : " + departmentDto.id());
         }
 
         departmentRepository.save(
-                new Department(departmentRegister.id(), departmentRegister.name())
+                new Department(departmentDto.id(), departmentDto.name())
         );
-        return new DepartmentRegisterResponse(departmentRegister.id());
+        return new DepartmentRegisterResponse(departmentDto.id());
     }
 
     @GetMapping("/{code}")

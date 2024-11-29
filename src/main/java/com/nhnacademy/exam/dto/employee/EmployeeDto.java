@@ -1,8 +1,8 @@
-package com.nhnacademy.exam.dto.department;
+package com.nhnacademy.exam.dto.employee;
 
 import jakarta.validation.constraints.NotBlank;
 
-public record DepartmentRegister(
+public record EmployeeDto(
         @NotBlank String id,
         @NotBlank String name
 ) {

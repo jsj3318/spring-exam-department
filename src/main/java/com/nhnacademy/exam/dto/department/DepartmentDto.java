@@ -1,11 +1,9 @@
 package com.nhnacademy.exam.dto.department;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import jakarta.validation.constraints.NotBlank;
 
-@Getter
-@AllArgsConstructor
-public class DepartmentDto {
-    String departmentCode;
-    String departmentName;
+public record DepartmentDto(
+        @NotBlank String id,
+        @NotBlank String name
+) {
 }
