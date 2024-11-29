@@ -12,10 +12,14 @@
 
 package com.nhnacademy.exam.parser.impl;
 
+import com.nhnacademy.exam.dto.DepartmentData;
 import com.nhnacademy.exam.parser.DepartmentParser;
+import com.opencsv.CSVReader;
+import com.opencsv.exceptions.CsvValidationException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -28,7 +32,34 @@ public class CsvDepartmentParser implements DepartmentParser {
     }
 
     @Override
-    public List parsing(File file) throws IOException {
-        return null;
+    public List<DepartmentData> parsing(File file) throws IOException {
+
+        List<DepartmentData> dataList = new ArrayList<>();
+
+        CSVReader csvReader = new CSVReader(new FileReader(file));
+        String[] nextLine;
+        //헤드 라인
+        try {
+            csvReader.readNext();
+            while (true) {
+                nextLine = csvReader.readNext();
+
+                if(nextLine == null || nextLine.length < 4) {
+                    break;
+                }
+
+                dataList.add(new DepartmentData(
+                        nextLine[0].trim(),
+                        nextLine[1].trim(),
+                        nextLine[2].trim(),
+                        nextLine[3].trim()
+                ));
+            }
+
+        } catch (CsvValidationException e) {
+            throw new RuntimeException(e);
+        }
+
+        return dataList;
     }
 }

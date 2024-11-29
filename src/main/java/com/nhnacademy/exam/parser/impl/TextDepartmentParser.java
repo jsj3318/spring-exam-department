@@ -12,6 +12,7 @@
 
 package com.nhnacademy.exam.parser.impl;
 
+import com.nhnacademy.exam.dto.DepartmentData;
 import com.nhnacademy.exam.parser.DepartmentParser;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -28,7 +29,7 @@ public class TextDepartmentParser implements DepartmentParser {
     }
 
     @Override
-    public List parsing(File file) throws IOException {
+    public List<DepartmentData> parsing(File file) throws IOException {
         return null;
     }
 }

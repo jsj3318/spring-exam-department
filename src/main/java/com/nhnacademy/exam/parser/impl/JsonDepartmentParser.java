@@ -39,7 +39,7 @@ public class JsonDepartmentParser implements DepartmentParser {
     }
 
     @Override
-    public List parsing(File file) throws IOException {
+    public List<DepartmentData> parsing(File file) throws IOException {
         List<DepartmentData> dataList = new ArrayList<>();
         try (InputStream inputStream = new FileInputStream(file)) {
             dataList = objectMapper.readValue(inputStream, new TypeReference<List<DepartmentData>>() {});
