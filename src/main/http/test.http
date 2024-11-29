@@ -20,3 +20,7 @@ X-USER-ID:nhnacademy
 {
   "name" : "CS1팀"
 }
+
+### department 삭제
+DELETE http://localhost:8080/departments/CS0001
+X-USER-ID:nhnacademy
