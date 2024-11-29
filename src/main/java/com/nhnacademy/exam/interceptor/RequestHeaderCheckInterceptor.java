@@ -9,9 +9,10 @@ import org.springframework.web.servlet.HandlerInterceptor;
 public class RequestHeaderCheckInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+
         // Accept: 에 지원하지않는 csv 타입
         String accept = request.getHeader("Accept");
-        if(accept != null && accept.contains("csv")) {
+        if(accept == null || accept.contains("csv")) {
             throw new NotSupportAcceptException();
         }
 

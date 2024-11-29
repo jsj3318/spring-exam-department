@@ -51,10 +51,10 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ErrorDto> notSupportAcceptException(NotSupportAcceptException ex) {
         ErrorDto errorDto = new ErrorDto(
                 "Could not find acceptable representation",
-                HttpStatus.NOT_ACCEPTABLE.value(),
+                HttpStatus.BAD_REQUEST.value(),
                 LocalDateTime.now()
         );
-        return new ResponseEntity<>(errorDto, HttpStatus.NOT_ACCEPTABLE);
+        return new ResponseEntity<>(errorDto, HttpStatus.BAD_REQUEST);
     }
 
 }

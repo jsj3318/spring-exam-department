@@ -54,6 +54,7 @@ GET http://localhost:8080/department-members?departmentIds=
 Accept:application/json
 X-USER-ID:nhnacademy
 
+# TODO 이거 이상함
 ### Accept csv 예외
 GET http://localhost:8080/department-members?departmentIds=L1001
 Accept:application/csv
