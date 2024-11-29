@@ -38,3 +38,9 @@ X-USER-ID:nhnacademy
 ### 부서 not found
 GET http://localhost:8080/departments/CS0002
 X-USER-ID:nhnacademy
+
+### L1001,A9003 부서조회
+GET http://localhost:8080/department-members?departmentIds=L1001,A9003
+Accept:application/json
+X-USER-ID:nhnacademy
+

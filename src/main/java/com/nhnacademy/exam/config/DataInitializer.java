@@ -30,8 +30,8 @@ public class DataInitializer {
     public void initData() throws IOException {
         // 4개의 데이터 파일 다 가져와버리기
         List<String> pathList = List.of(
-                "data/department.json",
                 "data/department.csv",
+                "data/department.json",
                 "data/department-1.txt",
                 "data/department-2.txt"
         );

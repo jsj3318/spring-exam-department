@@ -19,8 +19,8 @@ public class Employee {
     @NotBlank
     private String employeeName;
 
-    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    private List<EmployeeDepartment> employeeDepartments = new ArrayList<>();
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<EmployeeDepartment> employeeDepartments;
 
     public Employee(String employeeId, String employeeName) {
         this.employeeId = employeeId;

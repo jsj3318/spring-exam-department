@@ -19,8 +19,8 @@ public class Department {
     @NotBlank
     private String departmentName;
 
-    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    private List<EmployeeDepartment> employeeDepartmentList = new ArrayList<>();
+    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<EmployeeDepartment> employeeDepartmentList;
 
     public Department(String departmentCode, String departmentName) {
         this.departmentCode = departmentCode;
