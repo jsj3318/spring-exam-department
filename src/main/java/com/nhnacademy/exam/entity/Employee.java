@@ -1,5 +1,6 @@
 package com.nhnacademy.exam.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
@@ -21,7 +22,7 @@ public class Employee {
     @NotBlank
     private String employeeName;
 
-    @OneToMany(mappedBy = "employee")
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<EmployeeDepartment> employeeDepartments = new ArrayList<>();
 
     public Employee(String employeeId, String employeeName) {

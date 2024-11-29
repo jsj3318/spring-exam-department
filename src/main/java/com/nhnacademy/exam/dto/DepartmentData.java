@@ -8,7 +8,7 @@ import lombok.Getter;
 public class DepartmentData {
     // data 파일에서 받아오는 클래스
 
-    private String employeeNo;
+    private String employeeId;
     private String employeeName;
     private String departmentName;
     private String departmentCode;
@@ -19,7 +19,7 @@ public class DepartmentData {
             @JsonProperty("이름") String employeeName,
             @JsonProperty("부서") String departmentName,
             @JsonProperty("부서코드") String departmentCode) {
-        this.employeeNo = employeeNo;
+        this.employeeId = employeeNo;
         this.employeeName = employeeName;
         this.departmentName = departmentName;
         this.departmentCode = departmentCode;
