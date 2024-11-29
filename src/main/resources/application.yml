@@ -1,0 +1,19 @@
+spring:
+  jpa:
+    open-in-view: false # 'Open EntityManager in View' 패턴을 비활성화한다. 이를 false로 설정하면, 세션/엔티티 매니저가 뷰 렌더링까지 열려 있는 것을 방지한다.
+    show-sql: true # 콘솔에 SQL 쿼리를 출력한다. 개발 중 쿼리 디버깅에 유용하다.
+    properties:
+      hibernate:
+        format_sql: true # SQL 쿼리를 보기 좋게 포맷팅하여 출력한다.
+        use_sql_comments: true # SQL 쿼리에 주석을 포함한다. 쿼리 이해에 도움을 준다.
+        highlight_sql: true # Hibernate에서 SQL 로깅을 할 때 SQL 문을 강조(색상 추가)
+        auto_quote_keyword: true  # 예약어를 인식하여 자동으로 인용 부호를 추가한다. 데이터베이스 예약어와 충돌을 피할 수 있다.
+        globally_quoted_identifiers: true # 모든 데이터베이스 식별자(테이블 이름, 컬럼 이름 등)를 따옴표로 묶어 SQL 표준에 맞게 만듭니다. 예약어나 대소문자 구분 문제를 회피할 수 있습니다.
+    hibernate:
+      ddl-auto: create  # 애플리케이션 실행 시 데이터베이스 스키마를 자동으로 생성한다. 개발 초기 단계에서 유용하다.
+    #defer-datasource-initialization: true # 데이터 소스 초기화를 지연시킨다. 이는 JPA 엔티티를 데이터베이스 스키마 생성 후에 초기화하도록 해, 데이터베이스 초기화 스크립트 실행에 유리하다.
+
+logging:
+  level:
+    org.hibernate.orm.jdbc.bind: trace # Hibernate가 SQL 쿼리를 실행할 때, 바인딩되는 파라미터 값을 로깅한다. 쿼리 파라미터 값을 디버깅할 때 유용하다.
+    org.springframework.transaction.interceptor: trace # Spring 트랜잭션 관리에 대한 상세 로깅을 활성화한다. 트랜잭션 시작, 커밋, 롤백 등의 이벤트를 추적할 때 도움이 된다.

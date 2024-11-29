@@ -24,7 +24,7 @@ public class TextDepartmentParser implements DepartmentParser {
 
     @Override
     public String getFileType() {
-        return null;
+        return "txt";
     }
 
     @Override

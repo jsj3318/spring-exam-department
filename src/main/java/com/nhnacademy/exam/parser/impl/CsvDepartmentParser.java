@@ -24,7 +24,7 @@ public class CsvDepartmentParser implements DepartmentParser {
 
     @Override
     public String getFileType() {
-        return null;
+        return "csv";
     }
 
     @Override
