@@ -35,11 +35,11 @@ public class CsvDepartmentParser implements DepartmentParser {
     public List<DepartmentData> parsing(File file) throws IOException {
 
         List<DepartmentData> dataList = new ArrayList<>();
-
-        CSVReader csvReader = new CSVReader(new FileReader(file));
-        String[] nextLine;
+        
         //헤드 라인
-        try {
+        try(CSVReader csvReader = new CSVReader(new FileReader(file)))
+        {
+            String[] nextLine;
             csvReader.readNext();
             while (true) {
                 nextLine = csvReader.readNext();

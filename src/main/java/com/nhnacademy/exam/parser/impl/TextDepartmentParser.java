@@ -17,6 +17,7 @@ import com.nhnacademy.exam.parser.DepartmentParser;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -30,6 +31,37 @@ public class TextDepartmentParser implements DepartmentParser {
 
     @Override
     public List<DepartmentData> parsing(File file) throws IOException {
-        return null;
+        List<DepartmentData> dataList = new ArrayList<>();
+
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
+            String line = "";
+            // head 3줄
+            for(int i=0; i<3; i++){bufferedReader.readLine();}
+
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] data = line.split("\\|");
+
+                // 마지막 줄인지 검사 |--------|------
+                if(data[1].contains("-")){
+                    break;
+                }
+
+                // |사번             |이름             | 부서            |부서 코드          |
+                // |20202201        |김이름            | 백엔드1팀        |L1001           |
+                // data[0] 은 "" 이고 data[1]부터 시작
+                dataList.add(new DepartmentData(
+                        data[1].trim(),
+                        data[2].trim(),
+                        data[3].trim(),
+                        data[4].trim()
+                ));
+
+            }
+
+        }
+
+
+
+        return dataList;
     }
 }
