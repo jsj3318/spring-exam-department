@@ -24,3 +24,17 @@ X-USER-ID:nhnacademy
 ### department 삭제
 DELETE http://localhost:8080/departments/CS0001
 X-USER-ID:nhnacademy
+
+### 부서 아이디 중복 체크
+POST http://localhost:8080/departments
+Content-Type: application/json
+X-USER-ID:nhnacademy
+
+{
+  "id" : "L1001",
+  "name" : "고객서비스1팀"
+}
+
+### 부서 not found
+GET http://localhost:8080/departments/CS0002
+X-USER-ID:nhnacademy
