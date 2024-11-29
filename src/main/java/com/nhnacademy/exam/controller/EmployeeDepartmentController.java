@@ -5,7 +5,6 @@ import com.nhnacademy.exam.dto.employee.EmployeeDto;
 import com.nhnacademy.exam.dto.employeeDepartment.EmployeeDepartmentDto;
 import com.nhnacademy.exam.entity.EmployeeDepartment;
 import com.nhnacademy.exam.repository.EmployeeDepartmentRepository;
-import jakarta.websocket.server.PathParam;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

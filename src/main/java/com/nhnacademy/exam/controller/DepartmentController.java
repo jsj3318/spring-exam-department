@@ -1,7 +1,7 @@
 package com.nhnacademy.exam.controller;
 
-import com.nhnacademy.exam.dto.department.DepartmentModify;
 import com.nhnacademy.exam.dto.department.DepartmentDto;
+import com.nhnacademy.exam.dto.department.DepartmentModify;
 import com.nhnacademy.exam.dto.department.DepartmentRegisterResponse;
 import com.nhnacademy.exam.entity.Department;
 import com.nhnacademy.exam.exception.DataNotFoundException;
