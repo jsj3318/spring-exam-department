@@ -74,3 +74,7 @@ X-USER-ID:
 GET http://localhost:8080/department-members?departmentIds=L1001
 Accept:application/json
 
+### Content negotiation
+GET http://localhost:8080/departments/L1001
+Accept:application/xml
+X-USER-ID:nhnacademy
