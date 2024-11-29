@@ -44,3 +44,32 @@ GET http://localhost:8080/department-members?departmentIds=L1001,A9003
 Accept:application/json
 X-USER-ID:nhnacademy
 
+### 부서 아이디 파라미터 없음
+GET http://localhost:8080/department-members
+Accept:application/json
+X-USER-ID:nhnacademy
+
+### 파라미터 비어있음
+GET http://localhost:8080/department-members?departmentIds=
+Accept:application/json
+X-USER-ID:nhnacademy
+
+### Accept csv 예외
+GET http://localhost:8080/department-members?departmentIds=L1001
+Accept:application/csv
+X-USER-ID:nhnacademy
+
+### x-user-id : marco
+GET http://localhost:8080/department-members?departmentIds=L1001
+Accept:application/json
+X-USER-ID:marco
+
+### X-USER-ID : Empty
+GET http://localhost:8080/department-members?departmentIds=L1001
+Accept:application/json
+X-USER-ID:
+
+### X-USER-ID : NULL
+GET http://localhost:8080/department-members?departmentIds=L1001
+Accept:application/json
+

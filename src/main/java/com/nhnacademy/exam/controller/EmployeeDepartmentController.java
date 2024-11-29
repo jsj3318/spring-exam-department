@@ -24,9 +24,12 @@ public class EmployeeDepartmentController {
 
     @GetMapping
     public List<EmployeeDepartmentDto> getAll(
-            @RequestParam("departmentIds") List<String> departmentIds
+            @RequestParam(value = "departmentIds", required = false) List<String> departmentIds
             ){
-
+        // 파라미터가 있는지 검사
+        if(departmentIds == null || departmentIds.isEmpty()){
+            throw new IllegalArgumentException("Required request parameter 'departmentIds' for method parameter");
+        }
 
         // url 파라미터로 넘어온 모든 부서 아이디들의 관계 엔티티들 반환해야 함
         List<EmployeeDepartmentDto> dtoList = new ArrayList<>();
@@ -47,10 +50,6 @@ public class EmployeeDepartmentController {
         return dtoList;
     }
 
-    @GetMapping("/all")
-    public List<EmployeeDepartment> getAllDepartments()
-    {
-        return employeeDepartmentRepository.findAll();
-    }
+
 
 }
