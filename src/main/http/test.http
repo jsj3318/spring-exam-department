@@ -1,9 +1,22 @@
 ### department 등록
-POST http://localhost:8080/department
+POST http://localhost:8080/departments
 Content-Type: application/json
 X-USER-ID:nhnacademy
 
 {
   "id":"CS0001",
   "name":"고객서비스1팀"
+}
+
+### department 조회
+GET http://localhost:8080/departments/CS0001
+X-USER-ID:nhnacademy
+
+### department 수정
+PUT http://localhost:8080/departments/CS0001
+Content-Type: application/json
+X-USER-ID:nhnacademy
+
+{
+  "name" : "CS1팀"
 }

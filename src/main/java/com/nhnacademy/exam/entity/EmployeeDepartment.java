@@ -14,11 +14,11 @@ public class EmployeeDepartment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long edId;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "department_code", nullable = false)
     private Department department;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "employee_id", nullable = false)
     private Employee employee;
 

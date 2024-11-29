@@ -1,9 +1,6 @@
 package com.nhnacademy.exam.entity;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,7 +19,7 @@ public class Department {
     @NotBlank
     private String departmentName;
 
-    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<EmployeeDepartment> employeeDepartmentList = new ArrayList<>();
 
     public Department(String departmentCode, String departmentName) {
